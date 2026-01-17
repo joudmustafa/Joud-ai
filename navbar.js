@@ -38,18 +38,7 @@ overlay.addEventListener("click", function() {
     overlay.style.visibility = "hidden";
 });
 
-// Debounce function
-function debounce(func, wait = 20) {
-    let timeout;
-    return function() {
-        const context = this, args = arguments;
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(context, args), wait);
-    };
-}
-
-// Scroll event with debounce
-window.addEventListener("scroll", debounce(function() {
+window.addEventListener("scroll", function() {
     const navbar = document.querySelector(".navbar-collapse");
     const navLinks = document.querySelectorAll(".navbar-nav .nav-item a");
 
@@ -64,8 +53,7 @@ window.addEventListener("scroll", debounce(function() {
             link.style.color = "#edf2f4";
         });
     }
-}, 20)); // 20ms delay for debounce
-
+});
 function toggleDropdown(show) {
     const dropdownMenu = document.querySelector('.dropdown-menu');
     if (show) {
@@ -73,4 +61,6 @@ function toggleDropdown(show) {
     } else {
       dropdownMenu.style.display = 'none';
     }
-}
+  }
+  
+  

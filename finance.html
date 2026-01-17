@@ -8,107 +8,47 @@
   <link rel="stylesheet" href="./assets/css/default.css" />
   <link rel="stylesheet" href="finance.css">
   <link rel="shortcut icon"  href="/assets/images/favicon2.webp" type="image/png" />
-  <link rel="stylesheet" href="./assets/css/index.css">
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="./assets/css/animate.css" />
+  <link rel="stylesheet" href="./assets/css/index.css">
   <link rel="stylesheet" href="./assets/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="navbar.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <style>
-        .circle {
-        position: absolute;
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        pointer-events: none;
-        background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
-        transition: transform 0.1s, left 0.1s, top 0.1s;
-      }
-
-      .circle-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 9999;
-      }
-  </style>
 </head>
 <body>
-<div class="circle-container">
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-    </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const coords = { x: 0, y: 0 };
-        const circles = document.querySelectorAll(".circle");
-
-        circles.forEach(function (circle) {
-          circle.x = 0;
-          circle.y = 0;
-        });
-
-        window.addEventListener("mousemove", function (e) {
-          coords.x = e.pageX;
-          coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
-        });
-
-        function animateCircles() {
-          let x = coords.x;
-          let y = coords.y;
-
-          circles.forEach(function (circle, index) {
-            circle.style.left = `${x - 12}px`;
-            circle.style.top = `${y - 12}px`;
-            circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-
-            const nextCircle = circles[index + 1] || circles[0];
-            circle.x = x;
-            circle.y = y;
-
-            x += (nextCircle.x - x) * 0.3;
-            y += (nextCircle.y - y) * 0.3;
-          });
-
-          requestAnimationFrame(animateCircles);
-        }
-
-        animateCircles();
-      });
-
-    </script>
+  <div class="circle-container">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
   <div id="progressBar"></div>
   <script>
     window.onscroll = function () {
@@ -118,105 +58,88 @@
       document.getElementById("progressBar").style.width = scrolled + "%";
     };
   </script>
-   <div class="content-wrapper">
+  <div class="content-wrapper">
     <header class="header-area">
       <div style="display: flex; justify-content: center;" class="navbar-area">
         <div style="display: flex; justify-content: center;" class="container">
           <div class="row">
             <div style="display: flex; justify-content: center;" class="">
-              <nav class="navbar navbar-expand-lg" style="display: flex; background-color: #2c3e50;">
-                  <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                      <div class="icon1">
-                          <a href="./index.html">
-                              <img src="./assets/images/FinvedaLogo.png" alt="Finveda Logo" style="width: 13rem;">
-                          </a>
-                      </div>
-                      <ul id="nav" class="navbar-nav ml-auto" style="margin: auto;">
-                          <li class="nav-item">
-                              <a class="page-scroll" href="./index.html">
-                                  <i class="fas fa-home icon-hover" style="margin: 5px;"></i> Home
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="page-scroll" href="./about.html">
-                                  <i class="fas fa-info-circle icon-hover" style="margin: 5px;"></i> About Us
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="page-scroll active-link" href="./finance.html">
-                                  <i class="fas fa-graduation-cap icon-hover" style="margin: 5px;"></i> Courses
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="page-scroll" href="./contact.html">
-                                  <i class="fas fa-envelope icon-hover" style="margin: 5px;"></i> Contact
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="page-scroll" href="./faq.html">
-                                  <i class="fas fa-question-circle icon-hover" style="margin: 5px;"></i> Help
-                              </a>
-                          </li>
-                          <!-- Dropdown for Explore -->
-                          <li class="nav-item dropdown" onmouseover="toggleDropdown(true)" onmouseout="toggleDropdown(false)">
-                              <a class="page-scroll dropdown-toggle" href="#">
-                                  <i class="fas fa-chevron-down icon-hover" style="margin: 5px;"></i> Explore More
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li>
-                                  <a href="./finance.html">
-                                    <i class="fas fa-graduation-cap icon-hover" style="margin: 5px;"></i> Courses
-                                  </a>
-                                </li>
-                                  <li><a href="./trends.html"><i class="fas fa-chart-line icon-hover" style="margin: 5px;"></i> Trends</a></li>
-                                  <li><a href="./tools/sip.html"><i class="fas fa-tools icon-hover" style="margin: 5px;"></i> Tools</a></li>
-                                  <li><a href="./blog.html"><i class="fas fa-blog icon-hover" style="margin: 5px;"></i> Blogs</a></li>
-                                  <li><a href="./quiz.html"><i class="fas fa-question icon-hover" style="margin: 5px;"></i> Quiz</a></li>
-                                  <li><a href="./maps.html"><i class="fas fa-map icon-hover" style="margin: 5px;"></i> MAPS</a></li>
-                                  <li><a href="./Games/Games.html"><i class="fas fa-gamepad icon-hover" style="margin: 5px;"></i>
-                                    Games</a>
-                                </li>
-                              </ul>
-                          </li>
-                          <!-- Navigation item placeholder for Login/Register or Logout button -->
-                          <li class="nav-item no-underline" id="auth-btn-container">
-                              <a class="main-btn navbar-btn" style="padding: 2px 20px;" data-scroll-nav="0" href="./loginPage.html">
-                                  <i class="fas fa-user-circle icon-hover" style="margin: 5px;"></i> Login/Register
-                              </a>
-                          </li>
-                          <li class="nav-item no-underline align-self-center">
-                              <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">
-                                <span>🌞</span>
-                              </button>
-                          </li>
-                      </ul>
+              <nav class="navbar navbar-expand-lg " style="display: flex;">
+             
+
+                <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                  <div class="icon1">
+                    <a href="./index.html">
+                      <img src="./assets/images/FinvedaLogo.png" alt="icon.png" style="width: 13rem;">
+                    </a>
                   </div>
-              </nav>
-          </div>
+                  <ul id="nav" class="navbar-nav ml-auto" style="margin: auto;">
+                    <li class="nav-item">
+                      <a class="page-scroll" href="./index.html" style="color: rgb(237, 242, 244);">Home
+                        🏡</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="page-scroll" href="./about.html" style="color: rgb(237, 242, 244);">About Us 📖</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="page-scroll" href="./finance.html" style="color: rgb(237, 242, 244);">Courses 📚</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="page-scroll" href="./contact.html" style="color: rgb(237, 242, 244);">Contact📞</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="page-scroll" href="./faq.html" style="color: rgb(237, 242, 244);">Help 🙋‍♂️</a>
+                    </li>
+                    <!-- Dropdown for Explore -->
+                    <li class="nav-item dropdown" onmouseover="toggleDropdown(true)" onmouseout="toggleDropdown(false)">
+                      <a class="page-scroll dropdown-toggle" href="#" style="color: rgb(237, 242, 244);">
+                        <span class="explore-text">Explore 📚</span>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a href="./trends.html">Trends 📈</a></li>
+                        <li><a href="./tools/sip.html">Tools 🔧</a></li>
+                        <li><a href="./blog.html">Blogs 📰</a></li>
+                        <li><a href="./quiz.html">Quiz 🤔</a></li>
+                        <li><a href="./maps.html">MAPS 🗺️</a></li>
+                      </ul>
+                    </li>
+
+                    <!-- Navigation item placeholder for Login/Register or Logout button -->
+                    <li class="nav-item no-underline" id="auth-btn-container">
+                      <a class="main-btn navbar-btn"
+                        style="padding: 2px 20px; color: rgb(237, 242, 244); animation-duration: 0.4s; animation-name: ease;"
+                        data-scroll-nav="0" href="./loginPage.html">Login/Register 💻</a>
+                    </li>
+
+                    <li class="nav-item no-underline">
+                      <button id="theme-toggle" class="theme-toggle" style="margin-right: 2px;">
+                        🌙
+                      </button>
+                    </li>
+                  </ul>
+                </div>
           <script>
             const toggleButton = document.getElementById('theme-toggle');
-            var body = document.body;
-            var currentTheme = localStorage.getItem('theme');
-
+            const body = document.body;
+            const currentTheme = localStorage.getItem('theme');
+          
+            // Apply the saved theme preference on page load
             if (currentTheme === 'dark') {
               body.classList.add('dark-mode');
-              toggleButton.classList.add('dark');
-              toggleButton.querySelector('span').textContent = '🌞';
+              toggleButton.textContent = '🌞';
             }
-
+          
             toggleButton.addEventListener('click', function () {
               body.classList.toggle('dark-mode');
-              toggleButton.classList.toggle('dark');
-
-              // Update button icon based on mode
+          
+              // Update button icon and save theme in local storage
               if (body.classList.contains('dark-mode')) {
-                toggleButton.querySelector('span').textContent = '🌙';  // Light mode icon
+                toggleButton.textContent = '🌞';  // Light mode icon
                 localStorage.setItem('theme', 'dark');
               } else {
-                toggleButton.querySelector('span').textContent = '🌞';  // Dark mode icon
+                toggleButton.textContent = '🌙';  // Dark mode icon
                 localStorage.setItem('theme', 'light');
               }
-              loadShow();
             });
           </script>
           
@@ -256,32 +179,24 @@
     <img src="assets/images/cash-flow.png" alt="Understanding Cash Flow" class="poster-image">
     <button onclick="window.open('https://www.youtube.com/watch?v=hefAHWvrFDQ', '_blank')">Watch Now</button>
   </div>
+
   <div class="course" data-aos="slide-right">
     <h2>Understanding Stock Market</h2>
-    <img src="assets/images/invesment-basics.png" alt="Investment Basics" class="poster-image">
-    <button onclick="window.open('https:///www.youtube.com/watch?v=p7HKvqRI_Bo', '_blank')">Watch Now</button>
+    <img src="assets/images/stock-market.png" alt="Understanding Stock Market" class="poster-image">
+    <button onclick="window.open('https://www.youtube.com/watch?v=p7HKvqRI_Bo', '_blank')">Watch Now</button>
   </div>
 
   <div class="course" data-aos="zoom-in">
     <h2>Personal Finance Management</h2>
-       
-    <img src="assets/images/stock-market.png" alt="Understanding Stock Market" class="poster-image"><br><br>
+    <img src="assets/images/personal-finance.png" alt="Personal Finance Management" class="poster-image">
     <button onclick="window.open('https://www.youtube.com/watch?v=UcAY6qRHlw0', '_blank')">Watch Now</button>
   </div>
 
-  <div class="course" data-aos="zoom-in">
-    <h2>Investment Basics</h2><br>
-    <img src="assets/images/personal-finance.png" alt="Personal Finance Management" class="poster-image"><br>
+  <div class="course" data-aos="slide-left">
+    <h2>Investment Basics</h2>
+    <img src="assets/images/invesment-basics.png" alt="Investment Basics" class="poster-image">
     <button onclick="window.open('https://www.youtube.com/watch?v=qIw-yFC-HNU', '_blank')">Watch Now</button>
   </div>
-
-  
-  <div class="course" data-aos="">
-    <button onclick="loadMore()">Load More</button>
-  </div>
-  
-
- 
 </main>
 
   <style>
@@ -340,35 +255,33 @@ button {
 
 </style>
 
-<a href="#" class="back-to-top" style="margin-bottom: 5rem;"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/chevron-up.png" alt="chevron-up"/></a>
-
 
 <footer id="footer" class="footer-area pt-120">
-  <div class="container">
-    <div class="subscribe-area wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s"  style="height: 265px;background-color: #0890ff;">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="subscribe-content mt-45">
-            <h2 class="subscribe-title">
-              Subscribe Our Newsletter <span style="font-size: 28px;"> Get regular updates</span>
-            </h2>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="subscribe-form mt-50">
-            <form id="unique-subscribe-form">
-              <input type="email" id="unique-news-email" placeholder="Enter Email" required />
-              <button class="unique-main-btn" id="unique-subscribe-btn" type="submit">Subscribe</button>
-            </form>
-            <div id="unique-message" class="unique-popup-message" style="display: none;">
-              <div class="border-animation"></div>
-              Thank You for the subscription!
-            </div>
-          </div>
+<div class="container">
+<div class="subscribe-area wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="subscribe-content mt-45">
+        <h2 class="subscribe-title">
+          Subscribe Our Newsletter <span>get regular updates</span>
+        </h2>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="subscribe-form mt-50">
+        <form id="unique-subscribe-form">
+          <input type="email" id="unique-news-email" placeholder="Enter Email" required/>
+          <button class="unique-main-btn" id="unique-subscribe-btn" type="submit">Subscribe</button>
+        </form>
+        <div id="unique-message" class="unique-popup-message" style="display: none;">
+          <div class="border-animation"></div>
+          Thank You for the subscription!
         </div>
       </div>
     </div>
   </div>
+</div>
+</div>
 <div class="footer-widget pb-100">
 <div class="row" id="footer">
     <div class="col-lg-4 col-md-6 col-sm-8">
@@ -386,14 +299,12 @@ button {
                     <h3 class="title custom-margin">Quick Links</h3>
                 </div>
                 <ul class="link custom-margin">
-                  <li><a href="./blogs/privacy-policy.html"><i class="fas fa-user-secret"></i> Privacy Policy</a></li>
-                  <li><a href="./blogs/refund-policy.html"><i class="fas fa-undo-alt"></i> Refund Policy</a></li>
-                  <li><a href="Licensing.html"><i class="fas fa-file-contract"></i> Licensing</a></li>
-                  <li><a href="./blogs/terms-of-service.html"><i class="fas fa-file-alt"></i> Terms of Service</a></li>
-                  <li><a href="./contributors.html"><i class="fas fa-users"></i> Our Contributors</a></li>
-                  <li><a href="./blogs/sitemap.html"><i class="fa-solid fa-sitemap"></i> Site Map</a></li>
-                  <li><a href=".Cookieo+policty.html"><i class="fas fa-cookie-bite"></i> Our Cookie Policy</a></li>
-              </ul>
+                    <li><a href="./blogs/privacy-policy.html"><i class="fas fa-user-secret"></i> Privacy Policy</a></li>
+                    <li><a href="./blogs/refund-policy.html"><i class="fas fa-undo-alt"></i> Refund Policy</a></li>
+                    <li><a href="Licensing.html"><i class="fas fa-file-contract"></i> Licensing</a></li>
+                    <li><a href="./blogs/terms-of-service.html"><i class="fas fa-file-alt"></i> Terms of Service</a></li>
+                    <li><a href="./contributors.html"><i class="fas fa-users"></i> Our Contributors</a></li>
+                </ul>
             </div>
             <div class="link-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
                 <div class="footer-title">
@@ -487,155 +398,7 @@ button {
 <div id="particles-2"></div>
 </div>
 </footer>
-
-<button id="scrollToTopBtn" class="scroll-top" aria-label="Scroll to top">
-  <div class="scroll-top-icon">
-    <i class="fa-solid fa-arrow-up"></i>
-  </div>
-  <svg class="progress-ring" width="60" height="60">
-    <circle class="progress-ring__circle" stroke="#ffffff" stroke-width="4" fill="transparent" r="28" cx="30"
-      cy="30"></circle>
-  </svg>
-</button>
-<style>
-  .scroll-top {
-    position: fixed;
-    right: 1.6%;
-    background: #635adc;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
-    overflow: visible;
-    z-index: 10;
-    bottom: 110px;
-    margin-right: 10px;
-    /* Ensure button is on top */
-  }
-
-  .scroll-top.show {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .scroll-top:hover {
-    transform: scale(1.1);
-    /* Subtle scaling instead of expanding */
-    box-shadow: 0 8px 20px rgba(255, 69, 159, 0.6);
-    /* Slightly larger shadow */
-  }
-
-  .scroll-top:active {
-    transform: scale(1.05);
-    /* Minor scale reduction on click */
-  }
-
-  .scroll-top-icon {
-    position: relative;
-    z-index: 2;
-    transition: transform 0.3s ease;
-  }
-
-  .scroll-top:hover .scroll-top-icon {
-    transform: translateY(-3px);
-  }
-
-  /* Progress Ring Styling */
-  .progress-ring {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: rotate(-90deg);
-    /* To start from the top */
-  }
-
-  .progress-ring__circle {
-    transition: stroke-dashoffset 0.35s;
-    transform-origin: 50% 50%;
-  }
-
-  /* Pulse Animation */
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
-    }
-
-    50% {
-      box-shadow: 0 5px 15px rgba(255, 69, 159, 0.7);
-    }
-
-    100% {
-      box-shadow: 0 5px 15px rgba(255, 69, 159, 0.4);
-    }
-  }
-
-  .scroll-top:hover {
-    animation: pulse 1.5s infinite;
-  }
-
-  .scroll-top.show {
-    animation: none;
-    /* No animation when showing the button */
-  }
-
-  .scroll-top.show:hover {
-    animation: pulse 1.5s infinite;
-    /* Pulse on hover */
-  }
-</style>
-<script>
-  // Get the button
-  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-  const progressCircle = document.querySelector(".progress-ring__circle");
-  const radius = progressCircle.r.baseVal.value;
-  const circumference = 2 * Math.PI * radius;
-
-  // Set the circle progress properties
-  progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
-  progressCircle.style.strokeDashoffset = circumference;
-
-  // Function to show or hide the button based on scroll position
-  function toggleScrollButton() {
-    if (window.scrollY > 100) {
-      scrollToTopBtn.classList.add("show");
-    } else {
-      scrollToTopBtn.classList.remove("show");
-    }
-  }
-
-  // Function to set the scroll progress on the button ring
-  function setProgress(percent) {
-    const offset = circumference - (percent / 100) * circumference;
-    progressCircle.style.strokeDashoffset = offset;
-  }
-
-  // Listen for scroll events to update button visibility and progress
-  window.addEventListener("scroll", () => {
-    toggleScrollButton();
-    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-    setProgress(scrollPercent);
-  });
-
-  // Smooth scroll to top when the button is clicked
-  scrollToTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
-</script>
+<button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">↑</button>
 
   <script src="finance.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -664,9 +427,9 @@ button {
       let y = coords.y;
 
       circles.forEach(function (circle, index) {
-        circle.style.left = ${x - 12}px;
-        circle.style.top = ${y - 12}px;
-        circle.style.transform = scale(${(circles.length - index) / circles.length});
+        circle.style.left = `${x - 12}px`;
+        circle.style.top = `${y - 12}px`;
+        circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
 
         const nextCircle = circles[index + 1] || circles[0];
         circle.x = x;

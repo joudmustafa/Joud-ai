@@ -24,8 +24,28 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
         <link rel="stylesheet" href="./assets/css/about(inlines).css" />
         <link rel="stylesheet" href="navbar.css">
-    
+
         <style>
+           .circle {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        pointer-events: none;
+        background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
+        transition: transform 0.1s, left 0.1s, top 0.1s;
+      }
+
+      .circle-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+      }
+
           #progressBar {
             position: fixed;
             top: 0;
@@ -35,11 +55,11 @@
             background-color: #f76b45;
             z-index: 9999;
           }
-    
+
           * {
             cursor: url('/assets/images/ads_click_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg'), auto;
           }
-    
+
           .circle {
             position: absolute;
             width: 25px;
@@ -49,7 +69,7 @@
             background: radial-gradient(circle, rgba(73, 232, 247, 0.466), rgba(141, 38, 172, 0.5));
             transition: transform 0.1s, left 0.1s, top 0.1s;
           }
-    
+
           .circle-container {
             position: fixed;
             top: 0;
@@ -59,20 +79,20 @@
             pointer-events: none;
             z-index: 9999;
           }
-    
+
           @media (max-width: 720px) {
             .circle-container {
               display: none;
             }
           }
-        
+
           body p {
     color: #000000; /* Replace #000000 with your desired color code */
 }
 
-        </style>  
+        </style>
     </head>
-    
+
     <body>
       <div id="progressBar"></div>
       <script>
@@ -83,40 +103,79 @@
           document.getElementById("progressBar").style.width = scrolled + "%";
         };
       </script>
-      
+
       <div class="circle-container">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-      </div>
-    
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+
+        circles.forEach(function (circle) {
+          circle.x = 0;
+          circle.y = 0;
+        });
+
+        window.addEventListener("mousemove", function (e) {
+          coords.x = e.pageX;
+          coords.y = e.pageY - window.scrollY; // Adjust for vertical scroll position
+        });
+
+        function animateCircles() {
+          let x = coords.x;
+          let y = coords.y;
+
+          circles.forEach(function (circle, index) {
+            circle.style.left = `${x - 12}px`;
+            circle.style.top = `${y - 12}px`;
+            circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+
+            const nextCircle = circles[index + 1] || circles[0];
+            circle.x = x;
+            circle.y = y;
+
+            x += (nextCircle.x - x) * 0.3;
+            y += (nextCircle.y - y) * 0.3;
+          });
+
+          requestAnimationFrame(animateCircles);
+        }
+
+        animateCircles();
+      });
+
+    </script>
+
       <div id="progressBar"></div>
       <header class="header-area">
         <div style="display: flex; justify-content: center;" class="navbar-area">
@@ -127,9 +186,9 @@
                   <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent" style="margin: auto; margin-left: -5px;">
                     <div class="icon1">
                       <a href="./index.html">
-                        <img src="assets/images/icon.webp" alt="icon.png">
+                        <img src="./assets/images/FinvedaLogo.png" alt="Finveda Logo" style="width: 13rem;">
                       </a>
-                    </div> 
+                    </div>
                     <ul id="nav" class="navbar-nav ml-auto" style="margin: auto;">
                       <li class="nav-item">
                         <a class="page-scroll" href="./index.html" style="color: rgb(237, 242, 244);">Home 🏡</a>
@@ -168,22 +227,22 @@
                       </li>
                     </ul>
                   </div>
-    
+
                   <script>
                     const toggleButton = document.getElementById('theme-toggle');
                     var body = document.body;
                     var currentTheme = localStorage.getItem('theme');
-    
+
                     if (currentTheme === 'dark') {
                       body.classList.add('dark-mode');
                       toggleButton.classList.add('dark');
                       toggleButton.textContent = '🌞';
                     }
-                    
+
                     toggleButton.addEventListener('click', function () {
                       body.classList.toggle('dark-mode');
                       toggleButton.classList.toggle('dark');
-                      
+
                       if (body.classList.contains('dark-mode')) {
                         toggleButton.textContent = '🌞';
                         localStorage.setItem('theme', 'dark');
@@ -193,7 +252,7 @@
                       }
                     });
                   </script>
-    
+
                   <div class="">
                     <!-- Login Modal -->
                     <div id="myModal" class="modal">
@@ -233,22 +292,22 @@
                         </div>
                       </div>
                     </div>
-    
+
                     <!-- Social Media Login Scripts -->
                     <script>
                       document.getElementById('google-login').addEventListener('click', function() {
                         window.location.href = 'https://accounts.google.com/o/oauth2/auth?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=profile email';
                       });
-                    
+
                       document.getElementById('facebook-login').addEventListener('click', function() {
                         window.location.href = 'https://www.facebook.com/v13.0/dialog/oauth?client_id=YOUR_APP_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=public_profile email';
                       });
-                    
+
                       document.getElementById('twitter-login').addEventListener('click', function() {
                         window.location.href = 'https://twitter.com/i/oauth2/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=users.read';
                       });
                     </script>
-    
+
                     <!-- Register Modal -->
                     <div id="registerModal" class="modal">
                       <div class="modal-content">
@@ -292,7 +351,7 @@
                         </div>
                       </div>
                     </div>
-                    
+
                     <!-- Password Strength Check Script -->
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
                     <script>
@@ -301,12 +360,12 @@
                         const meter = document.getElementById('meter');
                         const meterContainer = document.getElementById('password-meter');
                         const strengthText = document.getElementById('strength-text');
-                    
+
                         if (password) {
                           meterContainer.style.display = 'block';
                           const result = zxcvbn(password);
                           const score = result.score;
-                    
+
                           meter.style.width = (score + 1) * 20 + '%';
                           meter.style.backgroundColor = getMeterColor(score);
                           strengthText.innerText = getStrengthText(score);
@@ -315,7 +374,7 @@
                           strengthText.innerText = '';
                         }
                       }
-                    
+
                       function getMeterColor(score) {
                         switch (score) {
                           case 0: return 'red';
@@ -326,7 +385,7 @@
                           default: return 'gray';
                         }
                       }
-                    
+
                       function getStrengthText(score) {
                         switch (score) {
                           case 0: return 'Very Weak';
@@ -337,7 +396,7 @@
                           default: return '';
                         }
                       }
-                    
+
                       function togglePasswordVisibility(id) {
                         const passwordInput = document.getElementById(id);
                         const eyeIcon = passwordInput.nextElementSibling;
@@ -352,41 +411,41 @@
                         }
                       }
                     </script>
-    
+
                     <!-- Social Media Signup Scripts -->
                     <script>
                       document.getElementById('google-signup').addEventListener('click', function() {
                         window.location.href = 'https://accounts.google.com/o/oauth2/auth?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=profile email';
                       });
-                    
+
                       document.getElementById('facebook-signup').addEventListener('click', function() {
                         window.location.href = 'https://www.facebook.com/v13.0/dialog/oauth?client_id=YOUR_APP_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=public_profile email';
                       });
-                    
+
                       document.getElementById('twitter-signup').addEventListener('click', function() {
                         window.location.href = 'https://twitter.com/i/oauth2/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=users.read';
                       });
                     </script>
-    
+
                     <!-- Modal Control Scripts -->
                     <script>
                       function openModal() {
                         var modal = document.getElementById("myModal");
                         modal.style.display = "block";
                       }
-                      
+
                       var loginCloseButton = document.querySelector("#myModal .close");
                       loginCloseButton.addEventListener("click", function() {
                         var modal = document.getElementById("myModal");
                         modal.style.display = "none";
                       });
-                      
+
                       var registerCloseButton = document.querySelector("#registerModal .close");
                       registerCloseButton.addEventListener("click", function() {
                         var modal = document.getElementById("registerModal");
                         modal.style.display = "none";
                       });
-                      
+
                       var registerLink = document.getElementById("registerLink");
                       registerLink.addEventListener("click", function() {
                         var registerModal = document.getElementById("registerModal");
@@ -394,7 +453,7 @@
                         var loginModal = document.getElementById("myModal");
                         loginModal.style.display = "none";
                       });
-                      
+
                       var loginLink = document.getElementById("loginLink");
                       loginLink.addEventListener("click", function() {
                         var loginModal = document.getElementById("myModal");
@@ -429,17 +488,17 @@
                   const toggleBtn = document.getElementById('theme-toggle2');
                   var body = document.body;
                   var currentTheme = localStorage.getItem('theme');
-        
+
                   if (currentTheme === 'dark') {
                   body.classList.add('dark-mode');
                   toggleBtn.classList.add('dark');
                   toggleBtn.textContent = '🌞';
                   }
-                  
+
                   toggleBtn.addEventListener('click', function () {
                   body.classList.toggle('dark-mode');
                   toggleBtn.classList.toggle('dark');
-                  
+
                   // Update button icon based on mode
                   if (body.classList.contains('dark-mode')) {
                     toggleBtn.textContent = '🌞';  // Light mode icon
@@ -452,7 +511,7 @@
               </script>
                 <link href="./navbar.css" rel="stylesheet">
                 <script type="text/javascript" src="./navbar.js"></script>
-    
+
               </div>
             </div>
           </div>
@@ -627,22 +686,22 @@
 </head>
 <body>
     <main>
-        <section id="user-content" class="review-container">
-            <div class="tab-container">
+        <section id="user-content" class="review-container" style="margin-top: 70px;">
+            <div class="tab-container" style="margin-top: 30px;">
                 <button class="tab active" data-tab="user-stories">Financial Success Stories</button>
                 <button class="tab" data-tab="reviews">Learning Resources Reviews</button>
             </div>
 
             <div class="content-container">
                 <div id="user-stories" class="content-section active">
-                    <h2>Share Your Financial Success Story</h2>
+                  <h2><span id="typing-effect">Share Your Financial Success Story</span></h2>
                     <form id="storyForm">
                         <div class="form-group">
                             <label for="storyTitle">Success Story Title:</label>
                             <input type="text" id="storyTitle" placeholder="e.g., How I Became Debt-Free in 2 Years" required>
                         </div>
                         <div class="form-group">
-                            <label for="storyCategory">Category:</label>
+                            <label for="storyCategory">📂Category:</label>
                             <select id="storyCategory" required>
                                 <option value="investing">Investing Success</option>
                                 <option value="saving">Saving Strategy</option>
@@ -652,11 +711,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="storyText">Your Journey:</label>
+                            <label for="storyText">📖Your Journey:</label>
                             <textarea id="storyText" rows="6" placeholder="Share your financial journey and success tips..." required></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="storyImage">Upload a Relevant Image:</label>
+                            <label for="storyImage">📷Upload a Relevant Image:</label>
                             <input type="file" id="storyImage" accept="image/*" required>
                         </div>
                         <button type="submit" class="submit-btn">Share Your Success</button>
@@ -711,6 +770,224 @@
         </section>
     </main>
 
+    <style>/* Main container styling */
+/* Container and General Styles */
+.review-container {
+    border: 3px solid rgb(70, 130, 180); /* Steel Blue */
+    max-width: 70%;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #ebf8ff, #cfe9f3); /* Light Blue Gradient */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    color: #333;
+    font-family: Arial, sans-serif;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Smooth fade-in effect */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Tab navigation styling */
+.review-container .tab-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.review-container .tab {
+    padding: 10px 20px;
+    background-color: #e0f7fa; /* Light Cyan */
+    color: #004d40; /* Dark Teal */
+    border: 2px solid rgb(0, 128, 128); /* Teal */
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.review-container .tab.active,
+.review-container .tab:hover {
+    background-color: #b2ebf2; /* Lighter Cyan */
+    color: #004d40; /* Dark Teal */
+    transform: scale(1.05);
+}
+
+/* Content sections */
+.review-container .content-container .content-section {
+    display: none;
+    animation: slideUp 0.8s ease-in-out;
+}
+
+.review-container .content-container .content-section.active {
+    display: block;
+}
+
+/* Slide-up effect */
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Form styling */
+.review-container .form-group {
+    margin-bottom: 15px;
+}
+
+.review-container .form-group label {
+    display: block;
+    font-weight: bold;
+    color: #004d40; /* Dark Teal */
+    margin-bottom: 5px;
+}
+
+/* Input fields styling */
+.review-container .form-group input[type="text"],
+.review-container .form-group select,
+.review-container .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #ddd; /* Grey */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent White */
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+}
+
+/* Focus and hover effects for input fields */
+.review-container .form-group input[type="text"]:focus,
+.review-container .form-group select:focus,
+.review-container .form-group textarea:focus {
+    background-color: #b2ebf2; /* Lighter Cyan */
+    outline: none;
+    border-color: #00796b; /* Darker Teal */
+    transform: scale(1.02);
+}
+
+/* File input styling */
+.review-container .form-group input[type="file"] {
+    padding: 8px;
+    border-radius: 6px;
+    border: 2px solid #ddd; /* Grey */
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+.review-container .form-group input[type="file"]:hover {
+    border-color: #00796b; /* Darker Teal */
+    transform: scale(1.02);
+}
+
+/* Submit button */
+.review-container .submit-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: linear-gradient(135deg, #00796b, #004d40); /* Darker Teal to Dark Teal */
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 128, 128, 0.3);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
+}
+
+.review-container .submit-btn:hover {
+    background: linear-gradient(135deg, #004d40, #00796b); /* Dark Teal to Darker Teal */
+    box-shadow: 0 6px 12px rgba(0, 128, 128, 0.4);
+    transform: scale(1.05);
+}
+
+/* Star rating */
+.review-container .star-rating label {
+    font-size: 1.5rem;
+    color: #ccc; /* Light Grey */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.review-container .star-rating input[type="radio"]:checked ~ label,
+.review-container .star-rating label:hover,
+.review-container .star-rating label:hover ~ label {
+    color: #ffb400; /* Yellow */
+}
+
+/* Form group styling within the gradient form */
+.review-container .content-section form .form-group input[type="text"],
+.review-container .content-section form .form-group select,
+.review-container .content-section form .form-group textarea {
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent White */
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s, border-color 0.3s ease;
+}
+
+.review-container .content-section form .form-group input[type="text"]:focus,
+.review-container .content-section form .form-group select:focus,
+.review-container .content-section form .form-group textarea:focus {
+    background-color: #b2ebf2; /* Lighter Cyan */
+    border-color: #00796b; /* Darker Teal */
+    transform: scale(1.02);
+}
+
+/* Section Title */
+.content-container h2 {
+    margin-bottom: 12px;
+    font-size: xx-large;
+    color: #004d40; /* Dark Teal */
+    animation: fadeIn 1s ease-in-out;
+}
+/* Typing effect styling */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+#typing-effect {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #004d40; /* Cursor color */
+    font-size: xx-large;
+    animation: typing 0.5s steps(30, end), blink 0.6s infinite;
+}
+      </style>
+<script>
+  class TypingEffect {
+    constructor(elementId, text, typingSpeed = 100) {
+        this.textElement = document.getElementById(elementId);
+        this.text = text;
+        this.typingSpeed = typingSpeed;
+        this.index = 0;
+    }
+
+    // Function to type out the text
+    type() {
+        if (this.index < this.text.length) {
+            this.textElement.innerHTML += this.text.charAt(this.index);
+            this.index++;
+            setTimeout(() => this.type(), this.typingSpeed);
+        }
+    }
+
+    // Start the typing effect and clear any existing content first
+    start() {
+        this.textElement.innerHTML = '';  // Clear any previous content
+        this.type();  // Start typing the text
+    }
+}
+
+// Initialize and start the typing effect
+document.addEventListener("DOMContentLoaded", () => {
+    const typingEffect = new TypingEffect("typing-effect", "Share Your Financial Success Story", 100);
+    typingEffect.start();
+});
+</script>
 
 <footer id="footer" class="footer-area pt-120">
     <div class="container">
@@ -742,6 +1019,9 @@
     <div class="row" id="footer">
         <div class="col-lg-4 col-md-6 col-sm-8">
             <div class="footer-about mt-50 ml-45 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+               <!-- Updated the Page Logo -->
+               <img src="../assets/images/FinvedaLogo.png" alt="FinVeda Logo"
+               style="height: 80px; width: auto; margin-bottom: 15px;" />
                 <p class="text custom-margin">
                     We at FinVeda aim to make you a stock market Guru easily with our AI-powered teaching and financial blogs.
                 </p>
@@ -758,10 +1038,10 @@
                         <li><a href="./blogs/refund-policy.html"><i class="fas fa-undo-alt"></i> Refund Policy</a></li>
                         <li><a href="Licensing.html"><i class="fas fa-file-contract"></i> Licensing</a></li>
                         <li><a href="./blogs/terms-of-service.html"><i class="fas fa-file-alt"></i> Terms of Service</a></li>
-                        
+
                     </ul>
                 </div>
-                <div class="link-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s"> 
+                <div class="link-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
                     <div class="footer-title">
                         <h4 class="title custom-margin" style="margin-top: 0px;">Resources</h4>
                     </div>
@@ -782,7 +1062,7 @@
                     <h4 class="title custom-margin" style=" text-align: left;  ">Contact Us</h4>
                 </div>
                 <ul class="contact custom-margin-big" style="justify-content: space-around;">
-                    
+
                   <li class="d-sm-flex justify-content-center">
                       <i class="fa fa-envelope d-sm-flex align-items-center white" style="font-size: 16px; width: 10%;"></i>
                       <div style="width: 80%;">
@@ -791,7 +1071,7 @@
                            ayush1337@hotmail.com
                        </a>
                       </div>
-    
+
                     <li class="d-sm-flex justify-content-center">
                         <i class="fa fa-globe d-sm-flex align-items-center white" style="font-size: 16px; width: 10%;"></i>
                         <div style="width: 80%;">
@@ -815,12 +1095,13 @@
                       <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
                       <a href="#"><i class="fa-brands fa-discord"></i></a>
                       <a href="#"><i class="fa-brands fa-github"></i></a>
+                      <a href="https://www.linkedin.com/in/ayush-that/"><i class="fa-brands fa-linkedin"></i></a>
                   </div>
                 </ul>
             </div>
         </div>
-    
-    
+
+
     </div>
     </div>
     <div class="footer-copyright mt-50 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s" style="text-align: center">
@@ -842,13 +1123,13 @@
                 reserved<br />
                 Made with ♥ in India
               </p>
-    
+
             </div>
           </div>
         </div>
       </div>
     </div>
-    
+
     <div id="particles-2"></div>
     </div>
     </footer>
